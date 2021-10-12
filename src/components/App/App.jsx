@@ -15,12 +15,13 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+import FoodCaloriesPage from '../FoodCaloriesPage/FoodCaloriesPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import FoodListPage from '../FoodListPage/FoodListPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -60,14 +61,23 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          <Route
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/info"
+            path="/calories"
           >
-            <InfoPage />
-          </ProtectedRoute>
+            <FoodCaloriesPage />
+          </Route>
 
+          <Route
+            // logged in shows foodList else shows LoginPage
+            exact
+            path="/foodList"
+          >
+            <FoodListPage />
+          </Route>
+
+             
           <Route
             exact
             path="/login"

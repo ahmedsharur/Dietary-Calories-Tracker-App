@@ -119,3 +119,44 @@ This code is also heavily commented. We recommend reading through the comments, 
 ## Update Documentation
 
 Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+
+
+
+
+Todo
+
+Setup
+[ ] Server setup 
+    [x] Node/Express/React/PostgreSql/Heroku/Redux/Sagas/Js/Material UI
+    [x] npm install
+    [x] npm run server
+    [x] npm run client
+[x] Build the Wireframes
+[x] Build a DB called "diet_tracker_app"
+[x] database.sql 
+    [x] CREATE TABLE user
+    [x] CREATE TABLE food
+    [x] CREATE TABLE user_food
+
+
+Features
+[ ] Render all the foods
+    [ ]Make a Select button in the FoodListPage that will render all the foods to the  Home Page
+[]Render all the user foods
+[ ] Edit food
+    [ ]Make an Edit button to Edit the food
+[ ] Delete food from both the DOM and Database
+    [ ] Make a Delete button to Delete the food
+
+[ ] Create/Add the food
+    [ ]Make an input field for the Name of the food
+    [ ]Make an input field for Protein
+    [ ]Make an input field for Fats
+    [ ]Make an input field for Carbs
+    [ ]Make an input field for Sugar
+    [ ]Make an Add button to Create or addd a food the Food Page
+      [ ] render the food
+    [ ] save to a DB
+
+Styling
+[ ] Use Material-ui for styling
