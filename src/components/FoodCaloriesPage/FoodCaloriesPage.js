@@ -2,7 +2,10 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { useHistory } from 'react-router-dom';
-// 
+
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
+  
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -11,6 +14,7 @@ import { useHistory } from 'react-router-dom';
 
 function FoodCaloriesPage() {
   const history = useHistory();
+  const [selectedDate, setSelectedDate] = useState(null)
 const [calories, setCalories] = useState();
 
 const handleCaloriesPage = (event) => {
@@ -24,7 +28,10 @@ const handleCaloriesPage = (event) => {
   
   return (
     <div className="container">
-      <p>FoodCalories Page</p>
+      <h2>Food Calories Page</h2>
+      <div>
+        <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)}/>
+    </div>
       <center>
         <button
           type="button"

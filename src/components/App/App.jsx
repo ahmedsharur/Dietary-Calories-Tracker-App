@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
 import FoodListPage from '../FoodListPage/FoodListPage';
+import AddFoodPage from '../AddFoodPage/AddFoodPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -77,6 +78,13 @@ function App() {
             <FoodListPage />
           </Route>
 
+          <Route
+            // logged in shows foodList else shows LoginPage
+            exact
+            //path="/addFood"
+          >
+            <AddFoodPage />
+          </Route>
              
           <Route
             exact
