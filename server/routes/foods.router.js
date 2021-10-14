@@ -21,8 +21,13 @@ router.get('/', (req, res) => {
 //select from user_food join food
 
 router.get('/select', (req, res) => {
-  pool.query(`SELECT * FROM user_food JOIN food ON user_food.food_id = food.id`)
-  .then((results) => res.send(results.rows))
+  pool.query(`SELECT * FROM 
+  user_food JOIN food ON 
+  user_food.food_id = food.id JOIN "user" ON 
+  user_food.user_id = "user".id`)
+  .then((results) => {
+  console.log('get the selected food', results.rows)
+  res.send(results.rows)})
   .catch((error) => {
     console.log('Error making GET request:', error);
     res.sendStatus(500);
@@ -33,8 +38,8 @@ router.post('/select', (req, res) => {
   //INSERT INTO user_food
   console.log(req.body)
   const queryText = `INSERT INTO "user_food" ("user_id", 
-  "food_id") VALUES ($1, $2);`;
-  pool.query(queryText, [ req.body.user_id])
+  "food_id", "date") VALUES ($1, $2, CURRENT_TIMESTAMP);`;
+  pool.query(queryText, [ req.body.user_id, req.body.id])
      .then((response) => {
        res.sendStatus(200);
      }).catch((error ) => {

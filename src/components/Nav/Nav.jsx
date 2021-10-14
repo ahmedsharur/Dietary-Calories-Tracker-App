@@ -28,6 +28,9 @@ function Nav() {
               Home
             </Link>
 
+            <Link className="navLink" to="/foodList">
+              Food List Page
+            </Link>
             <Link className="navLink" to="/calories">
               Food Calories Page
             </Link>

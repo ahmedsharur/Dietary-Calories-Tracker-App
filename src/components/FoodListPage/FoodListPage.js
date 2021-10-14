@@ -15,11 +15,12 @@ function FoodListPage() {
   const [selectFood, setSelectFood] = useState({ food_name: selectFood });
 
   //function to handlePOSTFood
-  const handlePostFood = (food) => (event) => {
+  const handlePostFood = (index) => (event) => {
+    console.log("index", index)
 
-    dispatch({ type: "SELECT_NEW_FOOD", payload: food });
-    setSelectFood({ food_name: selectFood });
-    history.push("/calories");
+    // dispatch({ type: "SELECT_NEW_FOOD", payload: food });
+    // setSelectFood({ food_name: selectFood });
+    history.push(`/calories/${index}`);
   };
 
   const backToFoodCalories = () => {
@@ -44,27 +45,27 @@ function FoodListPage() {
         <thead>
           <tr>
             <th>food_name</th>
-            <th>user_id</th>
+            {/* <th>user_id</th>
             <th>carbs</th>
             <th>sugar</th>
             <th>fat</th>
             <th>protein</th>
-            <th>calorie_total</th>
+            <th>calorie_total</th> */}
           </tr>
         </thead>
         <tbody>
           {setFoodList.map((food, index) => (
             <tr key={index}>
               <td>{food.food_name}</td>
-              <td>{food.user_id}</td>
+              {/*<td>{food.user_id}</td>
               <td>{food.carbs}</td>
               <td>{food.sugar}</td>
               <td>{food.fat}</td>
               <td>{food.protein}</td>
-              <td>{food.calorie_total}</td>
+              <td>{food.calorie_total}</td>*/}
               <td>
                 {/* build 'Add' for POST route */}
-                  <button onClick={handlePostFood(food)} 
+                  <button onClick={handlePostFood(index)} 
                   type="submit">SELECT </button>
               </td>
               <td>
