@@ -17,9 +17,6 @@ function FoodListPage() {
   //function to handlePOSTFood
   const handlePostFood = (index) => (event) => {
     console.log("index", index)
-
-    // dispatch({ type: "SELECT_NEW_FOOD", payload: food });
-    // setSelectFood({ food_name: selectFood });
     history.push(`/calories/${index}`);
   };
 
