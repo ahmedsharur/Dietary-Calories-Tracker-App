@@ -42,7 +42,7 @@ const history = useHistory();
       <button type="submit" variant="contained"color="secondary" onClick={handleAddFood}> Add </button>
     </form>
 
-    <p> {foodName.food_name}</p>
+    {/* <p> {foodName.food_name}</p> */}
     </div>
   );
 }
