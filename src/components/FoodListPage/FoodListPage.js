@@ -35,6 +35,11 @@ function FoodListPage() {
     dispatch({ type: "FETCH_FOOD" });
   }, [dispatch]);
 
+//   const handleDelete = () => {
+//     dispatch({ type: 'DELETE_FOOD', payload: food.id })
+//   }
+
+
   return (
     <div className="food">
       <h2>Food List</h2>
@@ -72,7 +77,8 @@ function FoodListPage() {
                 <button type="edit">EDIT</button>
               </td>
               <td>
-                <button type="delete">DELETE </button>
+                <button type="delete" >DELETE </button>
+                {/* onClick={handleDelete} */}
               </td>
             </tr>
           ))}

@@ -69,4 +69,19 @@ router.post('/select', (req, res) => {
 //      });
 // });
 
+
+// router.delete('/:id', (req, res) => {
+//     // endpoint functionality - delete by id
+//     const foodID = req.params.id;
+//     console.log(foodID)
+//     const queryText = `DELETE FROM "food" WHERE "id" = $1;`;
+//     pool.query(queryText, [foodID])
+//     .then((response) => {
+//       res.sendStatus(201);
+//     }).catch((error) => {
+//       console.log('Error deleting food with ID', foodID)
+//       res.sendStatus(500)
+//     });
+// });
+
 module.exports = router;

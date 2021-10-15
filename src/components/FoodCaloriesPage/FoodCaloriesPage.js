@@ -15,7 +15,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 function FoodCaloriesPage() {
   const history = useHistory();
   const [selectedDate, setSelectedDate] = useState(null)
-  const [calories, setCalories] = useState();
+  //const [calories, setCalories] = useState();
 
   const reduxStore = useSelector((store) => store);
   const { setFoodList } = reduxStore;
@@ -43,11 +43,11 @@ function FoodCaloriesPage() {
     </div>
       <center>
       {setFoodList[id].food_name}
-      {setFoodList[id].carbs}
+      {/* {setFoodList[id].carbs}
       {setFoodList[id].sugar}
       {setFoodList[id].fat}
       {setFoodList[id].protein}
-      {setFoodList[id].calorie_total}
+      {setFoodList[id].calorie_total} */}
       <br/>
         <button
           type="button"
@@ -56,9 +56,7 @@ function FoodCaloriesPage() {
             history.push('/foodList');
           }}
         >
-          
           SELECT FOOD
-          
         </button>
       </center>
     
