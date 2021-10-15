@@ -84,4 +84,17 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+
+// router.put('/:id', (req, res) => {
+//   //endpoint functionality
+//   const foodId = req.params.id;
+//   const queryText = `UPDATE "food" SET "id" = $2 WHERE "id" = $1`;
+//   pool.query(queryText, [foodId]).then((response) => {
+//     res.sendStatus(201);
+//   }).catch((error) => {
+//     console.log('Error Editing food with ID', foodId);
+//     res.sendStatus(500)
+//   });
+// });
+
 module.exports = router;

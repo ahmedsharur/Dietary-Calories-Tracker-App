@@ -36,12 +36,12 @@ function FoodListPage() {
     dispatch({ type: 'DELETE_FOOD', payload: id});
   }
 
-// const handleEdit = () =>{
-//     dispatch({
-//         type: 'EDIT_FOOD', payload: food.id
-//     })
-//     history.push('/addFood')
-// }
+const handleEdit = () =>{
+    dispatch({
+        type: 'EDIT_FOOD', payload: food.id
+    })
+    history.push('/addFood')
+}
 
 
   return (
@@ -78,8 +78,7 @@ function FoodListPage() {
                   type="submit">SELECT </button>
               </td>
               <td>
-                <button type="edit"  >EDIT</button>
-                {/* onClick={handleEdit} */}
+                <button type="edit" onClick={handleEdit}>EDIT</button>
               </td>
               <td>
                 <button type="delete" onClick={() => handleDelete(food.id)}>DELETE </button>

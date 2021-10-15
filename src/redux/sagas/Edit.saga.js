@@ -13,7 +13,7 @@
 // }
 
 
-// function editSaga(){
+// function* editSaga(){
 //     yield takeLatest('EDIT_FOOD', editFood)
 // }
 
