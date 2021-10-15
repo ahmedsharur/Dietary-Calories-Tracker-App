@@ -34,7 +34,16 @@ function FoodCaloriesPage() {
   
   return (
     <>
-    {setFoodList.length === 0 ? <p>loading</p> : 
+    {id === 'a' ? <></> : setFoodList.length === 0 ? <></> : 
+      <>
+      
+
+
+
+
+
+      
+    
     <div className="container">
       
       <h2>Food Calories Page</h2>
@@ -42,13 +51,14 @@ function FoodCaloriesPage() {
         <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)}/>
     </div>
       <center>
-      {setFoodList[id].food_name}
-      {/* {setFoodList[id].carbs}
+        
+    {/* {setFoodList[id].carbs}
       {setFoodList[id].sugar}
       {setFoodList[id].fat}
       {setFoodList[id].protein}
       {setFoodList[id].calorie_total} */}
       <br/>
+      {setFoodList[id].food_name}
         <button
           type="button"
           className="btn btn_asLink"
@@ -59,8 +69,9 @@ function FoodCaloriesPage() {
           SELECT FOOD
         </button>
       </center>
-    
     </div>
+
+    </>
     }
     </>
   );

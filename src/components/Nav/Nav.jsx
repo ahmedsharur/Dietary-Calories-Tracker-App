@@ -31,7 +31,7 @@ function Nav() {
             <Link className="navLink" to="/foodList">
               Food List Page
             </Link>
-            <Link className="navLink" to="/calories">
+            <Link className="navLink" to="/calories/a">
               Food Calories Page
             </Link>
 

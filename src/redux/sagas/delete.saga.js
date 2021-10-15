@@ -15,4 +15,5 @@ function* deleteSaga() {
     yield takeLatest('DELETE_FOOD', deleteFood)
 }
 
+
 export default deleteSaga;

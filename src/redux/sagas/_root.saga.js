@@ -6,6 +6,7 @@ import fetchFoodSaga from './fetchFood.saga';
 import selectFoodSaga from './selectFood.saga';
 import addFoodSaga from './addFoodSaga';
 import deleteSaga from './delete.saga';
+// import editSaga from './Edit.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +24,6 @@ export default function* rootSaga() {
     selectFoodSaga(),
     addFoodSaga(),
     deleteSaga(),
+    // editSaga(),
   ]);
 }
