@@ -4,6 +4,7 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import fetchFoodSaga from './fetchFood.saga';
 import selectFoodSaga from './selectFood.saga';
+import addFoodSaga from './addFoodSaga';
 //import deleteSaga from './delete.saga';
 
 // rootSaga is the primary saga.
@@ -20,6 +21,7 @@ export default function* rootSaga() {
     userSaga(),
     fetchFoodSaga(),
     selectFoodSaga(),
+    addFoodSaga(),
     //deleteSaga(),
   ]);
 }

@@ -11,11 +11,11 @@ function* postFood(action){
         }
 }
 
-function* fetchFoodSaga(){
-    yield takeLatest('FETCH_FOOD', fetchFood)
+function* addFoodSaga(){
+    yield takeLatest('ADD_NEW_FOOD', postFood)
 }
 
 
 
 
-export default postFood;
+export default addFoodSaga;

@@ -56,11 +56,11 @@ router.post('/', (req, res) => {
   const payload = req.body;
   console.log(payload);
   const queryText = `INSERT INTO "food" ("food_name", 
-  "user_id", "carbs", "sugar", "fat", "protein", 
-  "calorie_total") VALUES ($1, $2, $3, $4, $5, $6, $7);`;
-  pool.query(queryText, [payload.food_name, payload.user_id, 
+  "user_id", "carbs", "sugar", "fat", "protein" )
+   VALUES ($1, $2, $3, $4, $5, $6);`;
+  pool.query(queryText, [payload.food_name, payload.user_id,
     payload.carbs, payload.sugar, payload.fat,
-     payload.protein, payload.calorie_total])
+     payload.protein])
      .then((response) => {
        res.sendStatus(201);
      }).catch((error ) => {

@@ -8,27 +8,29 @@ function AddFoodPage() {
 // set selector
 const reduxStore = useSelector((store) => store);
 const [foodName, setFoodName] 
-= useState({food_name: '', carbs: '', sugar: '', fat: '', protein: '' })
+= useState({food_name: '', user_id: '', carbs: '', sugar: '', fat: '', protein: '' })
 const dispatch = useDispatch();
-
-
 const history = useHistory();
 
 
-
+  
   //function to handleAddFood
   const handleAddFood = (event) => {
     event.preventDefault();
     dispatch({ type: "ADD_NEW_FOOD", payload: foodName });
-    setFoodName({ food_name: '', carbs: '', sugar: '', fat: '', protein: ''});
-    history.push("/foodList");
+    setFoodName({ food_name: '', user_id: '', carbs: '', sugar: '', fat: '', protein: ''});
+    console.log(foodName)
+    //history.push("/foodList");
   };
 
 
   return (
+      <div>
     <form>
     <input type="text" placeholder="Food_Name" value={foodName.food_name}
         onChange={(event) => setFoodName({...foodName, food_name: event.target.value})} />
+    <input type="text" placeholder="Proteins" value={foodName.user_id}
+        onChange={(event) => setFoodName({...foodName, user_id: event.target.value})} />
     <input type="text" placeholder="Carbs" value={foodName.carbs}
         onChange={(event) => setFoodName({...foodName, carbs: event.target.value})} />
     <input type="text" placeholder="Sugar" value={foodName.sugar}
@@ -39,6 +41,9 @@ const history = useHistory();
         onChange={(event) => setFoodName({...foodName, protein: event.target.value})} />
       <button type="submit" variant="contained"color="secondary" onClick={handleAddFood}> Add </button>
     </form>
+
+    <p> {foodName.food_name}</p>
+    </div>
   );
 }
 
