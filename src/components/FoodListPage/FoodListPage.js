@@ -32,7 +32,7 @@ function FoodListPage() {
     dispatch({ type: "FETCH_FOOD" });
   }, [dispatch]);
 
-  const handleDelete = () => {
+  const handleDelete = ({food}) => {
     dispatch({ type: 'DELETE_FOOD', payload: food.id })
   }
 

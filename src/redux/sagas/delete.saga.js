@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* deleteFood(action) {
     try {
-        console.log("Item to delete: ", action.payload);
+        console.log("Food to delete: ", action.payload);
         yield axios.delete(`/api/foods/${action.payload}`);
         yield put({ type: 'FETCH_FOOD' });
     } catch (error) {
