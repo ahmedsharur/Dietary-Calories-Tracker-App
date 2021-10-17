@@ -4,8 +4,9 @@ import axios from 'axios';
 
 function* editFood(action){
     try{
-        console.log("item to edit is: ", action.payload);
-        yield axios.put(`/api/foods/${action.payload}`);
+        console.log("food to edit is: ", action.payload);
+        console.log('id is', action.id)
+        yield axios.put(`/api/foods/${action.id}`, {data: action.payload});
         yield put({type: 'FETCH_FOOD'});
     }catch(error){
         console.log('ERROR IN EDIT FOOD SAGA', error)

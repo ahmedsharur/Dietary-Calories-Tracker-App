@@ -8,6 +8,7 @@ function FoodListPage() {
   const reduxStore = useSelector((store) => store);
   const { setFoodList } = reduxStore;
   const dispatch = useDispatch();
+  const [totalCalories, setTotalCalories] = useState(0)
 
   const history = useHistory();
 
@@ -21,7 +22,7 @@ function FoodListPage() {
   };
 
   const backToFoodCalories = () => {
-    history.push('/calories')
+    history.push('/calories/a')
   }
 
   const goToAddFoodPage = () => {
@@ -36,11 +37,8 @@ function FoodListPage() {
     dispatch({ type: 'DELETE_FOOD', payload: id});
   }
 
-const handleEdit = () =>{
-    dispatch({
-        type: 'EDIT_FOOD', payload: food.id
-    })
-    history.push('/addFood')
+const handleEdit = (id) =>{
+    history.push(`/editFood/${id}`)
 }
 
 
@@ -58,27 +56,25 @@ const handleEdit = () =>{
             <th>carbs</th>
             <th>sugar</th>
             <th>fat</th>
-            <th>protein</th>
-            <th>calorie_total</th> */}
+            <th>protein</th> */}
           </tr>
         </thead>
         <tbody>
           {setFoodList.map((food, index) => (
             <tr key={index}>
               <td>{food.food_name}</td>
-              {/*<td>{food.user_id}</td>
+              {/* <td>{food.user_id}</td>
               <td>{food.carbs}</td>
               <td>{food.sugar}</td>
               <td>{food.fat}</td>
-              <td>{food.protein}</td>
-              <td>{food.calorie_total}</td>*/}
+              <td>{food.protein}</td> */}
               <td>
                 {/* build 'Add' for POST route */}
                   <button onClick={handlePostFood(index)} 
                   type="submit">SELECT </button>
               </td>
               <td>
-                <button type="edit" onClick={handleEdit}>EDIT</button>
+                <button type="edit" onClick={() => handleEdit(food.id)}>EDIT</button>
               </td>
               <td>
                 <button type="delete" onClick={() => handleDelete(food.id)}>DELETE </button>

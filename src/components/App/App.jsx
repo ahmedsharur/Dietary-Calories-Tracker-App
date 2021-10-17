@@ -23,6 +23,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import './App.css';
 import FoodListPage from '../FoodListPage/FoodListPage';
 import AddFoodPage from '../AddFoodPage/AddFoodPage';
+import EditFoodPage from '../EditFood/EditFood';
 
 function App() {
   const dispatch = useDispatch();
@@ -79,11 +80,19 @@ function App() {
           </Route>
 
           <Route
-            // logged in shows foodList else shows LoginPage
+            // logged in shows AddFoodPage else shows LoginPage
             exact
             path="/addFood"
           >
             <AddFoodPage />
+          </Route>
+
+          <Route
+            // logged in shows EditFoodPage else shows LoginPage
+            exact
+            path="/editFood/:id"
+          >
+            <EditFoodPage />
           </Route>
              
           <Route

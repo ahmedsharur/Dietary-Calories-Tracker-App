@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 // Create a get route for selected food
-//select from user_food join food
+//select from user_food join food and user
 
 router.get('/select', (req, res) => {
   pool.query(`SELECT * FROM 
@@ -87,12 +87,23 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   //endpoint functionality
+  console.log(req.body.data)
+  const food_name = req.body.data.food_name;
+  const user_id = req.body.data.user_id
+  const carbs = req.body.data.carbs;
+  const sugar = req.body.data.sugar;
+  const fat = req.body.data.fat;
+  const protein = req.body.data.protein;
   const foodId = req.params.id;
-  const queryText = `UPDATE "food" SET "id" = $2 WHERE "id" = $1`;
-  pool.query(queryText, [foodId]).then((response) => {
+  console.log("hiiiiiiiii", food_name, user_id, carbs, sugar, fat, protein)
+  console.log('foodId is', foodId)
+  const queryText = `UPDATE "food" SET "food_name" = $1, user_id = $2, "carbs" = $3, 
+  "sugar" = $4, "fat" = $5, "protein" = $6 WHERE "id" = $7`;
+  pool.query(queryText, [food_name, user_id, carbs, 
+    sugar, fat, protein, foodId]).then((response) => {
     res.sendStatus(201);
   }).catch((error) => {
-    console.log('Error Editing food with ID', foodId);
+    console.log('Error Editing food with ID', error);
     res.sendStatus(500)
   });
 });

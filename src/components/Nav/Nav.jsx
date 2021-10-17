@@ -28,15 +28,20 @@ function Nav() {
               Home
             </Link>
 
-            <Link className="navLink" to="/foodList">
-              Food List Page
-            </Link>
             <Link className="navLink" to="/calories/a">
               Food Calories Page
             </Link>
 
+            <Link className="navLink" to="/foodList">
+              Food List Page
+            </Link>
+          
             <Link className="navLink" to="/addFood">
               Add Food Page
+            </Link>
+
+            <Link className="navLink" to="/editFood/:id">
+              Edit Food Page
             </Link>
 
 
