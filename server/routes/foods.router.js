@@ -79,7 +79,7 @@ router.delete('/:id', (req, res) => {
     .then((response) => {
       res.sendStatus(201);
     }).catch((error) => {
-      console.log('Error deleting food with ID', foodID)
+      console.log('Error deleting food with ID', foodID, error)
       res.sendStatus(500)
     });
 });

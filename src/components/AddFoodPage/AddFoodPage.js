@@ -39,6 +39,7 @@ const history = useHistory();
   return (
       <div>
         <h3> Add Food Page</h3>
+        <Paper elevation={20}>
         <Grid container spacing={2}>
     <form>
       <Grid item xs="10">
@@ -68,6 +69,7 @@ const history = useHistory();
       <Button type="submit" variant="contained"color="secondary" onClick={handleAddFood}> Add </Button>
     </form>
     </Grid>
+    </Paper>
     </div>
   );
 }

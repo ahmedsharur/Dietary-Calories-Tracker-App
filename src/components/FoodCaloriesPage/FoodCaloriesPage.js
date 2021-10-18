@@ -5,7 +5,9 @@ import { useHistory, useParams } from 'react-router-dom';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
-  
+
+//Material-ui
+import {Button, TextField, Paper, makeStyles} from '@material-ui/core'
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -60,7 +62,8 @@ function FoodCaloriesPage() {
       Food: {setFoodList[id].food_name} 
       <br/>
         <button
-          type="button"
+          type="submit"
+          variant="contained"color="secondary"
           onClick={(handleCaloriesPage) => {
             history.push('/foodList');
           }}
