@@ -73,7 +73,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     // endpoint functionality - delete by id
     const foodID = req.params.id;
-    console.log(foodID)
+    console.log("id for delete is", foodID)
     const queryText = `DELETE FROM "food" WHERE "id" = $1;`;
     pool.query(queryText, [foodID])
     .then((response) => {

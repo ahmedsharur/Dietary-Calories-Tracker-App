@@ -46,10 +46,10 @@ function FoodCaloriesPage() {
       <h3> Total Calories for Today:</h3>
 
   {setFoodList.map((calorie) => {
-    return <p> {calorie.food_name}Carbs:{calorie.carbs} 
-    Sugar:{calorie.sugar} 
-    Fat:{calorie.fat} 
-    Protein:{calorie.protein}</p>
+    return <p> {calorie.food_name}(Carbs:{calorie.carbs}g, 
+    Sugar:{calorie.sugar}g,
+    Fat:{calorie.fat}g, 
+    Protein:{calorie.protein}g)</p>
   })}
 
     {/* {setFoodList[id].carbs}

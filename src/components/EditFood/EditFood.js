@@ -3,8 +3,24 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
+//Material-ui
+import {Button, Grid, TextField, Paper, makeStyles} from '@material-ui/core'
+
+// Styling
+const useStyles = makeStyles({
+  root: {
+    float: 'right',
+    marginLeft: '5px',
+    // width: '10%',
+    marginTop: '5%',
+    display: 'inline-flex',
+
+  },
+});
+
 function EditFoodPage() {
 
+  const classes = useStyles();
 // set selector
 const reduxStore = useSelector((store) => store);
 const [foodName, setFoodName] 
@@ -22,29 +38,42 @@ const {id} = useParams();
     // setFoodName({ food_name: '', user_id: '', carbs: '', sugar: '', 
     // fat: '', protein: ''});
     // console.log(foodName)
-    //history.push("/foodList");
+    // history.push("/foodList");
 
    
-
   return (
       <div>
         <h3 > Edit Food Page</h3>
+        <Grid container spacing={2}>
     <form>
-    <input type="text" placeholder="Food_Name" value={foodName.food_name}
+      <Grid item xs="10">
+    <TextField className={classes.root} type="text" variant="filled" color="success" focused size="small" placeholder="Food_Name" value={foodName.food_name}
         onChange={(event) => setFoodName({...foodName, food_name: event.target.value})} />
-        <input type="text" placeholder="user_id" value={foodName.user_id}
+      </Grid>
+      <Grid item xs="10">
+    <TextField className={classes.root} type="text" variant="filled" color="success" focused size="small"  placeholder="user_id" value={foodName.user_id}
         onChange={(event) => setFoodName({...foodName, user_id: event.target.value})} />
-    <input type="text" placeholder="Carbs" value={foodName.carbs}
+      </Grid>
+      <Grid item xs="10">
+    <TextField type="text" variant="filled" color="success" focused size="small"  placeholder="Carbs" value={foodName.carbs}
         onChange={(event) => setFoodName({...foodName, carbs: event.target.value})} />
-    <input type="text" placeholder="Sugar" value={foodName.sugar}
+    </Grid>
+    <Grid item xs="10">
+    <TextField type="text" variant="filled" color="success" focused size="small" placeholder="Sugar" value={foodName.sugar}
         onChange={(event) => setFoodName({...foodName, sugar: event.target.value})} />
-    <input type="text" placeholder="Fats" value={foodName.fat}
+    </Grid>
+    <Grid item xs="10">
+    <TextField type="text" variant="filled" color="success" focused size="small" placeholder="Fats" value={foodName.fat}
         onChange={(event) => setFoodName({...foodName, fat: event.target.value})} />
-    <input type="text" placeholder="Proteins" value={foodName.protein}
+    </Grid>
+    <Grid item xs="10">
+    <TextField type="text" variant="filled" color="success" focused size="small" placeholder="Proteins" value={foodName.protein}
         onChange={(event) => setFoodName({...foodName, protein: event.target.value})} />
-      <button type="submit" variant="contained"color="secondary" 
-       onClick={handleEditFood}> Add </button>
+      </Grid>
+      <Button type="submit" variant="contained"color="secondary" 
+       onClick={handleEditFood}> Add </Button>
     </form>
+    </Grid>
     </div>
   );
 }
