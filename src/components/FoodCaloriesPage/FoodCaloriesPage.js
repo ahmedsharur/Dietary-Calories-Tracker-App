@@ -34,6 +34,39 @@ function FoodCaloriesPage() {
   });
 } 
 
+
+const totals = () => {
+
+let sugars = 0;
+setFoodList.map((meal) => {
+  sugars+=meal.sugar
+}
+  
+)
+return <p> {sugars}</p>
+
+
+}
+
+// const totals = () =>  setFoodList.map((meal,index) => {
+//    return meal[index].carbs, meal.sugar, meal.fat, meal.protein
+// }).reduce((acc, curr) => {
+//     console.log('This is current total', curr)
+//     return acc + curr
+//   },0)
+  
+//   totals();
+
+
+//  const total= ()=> setFoodList.map((acc,curr,index) =>{
+//   console.log("the totals are", acc)
+//   console.log('the values are', curr)
+//   console.log("the index is", index)
+//   return  acc + curr.carbs
+// })
+
+// total();
+
   return (
     <>
     {id === 'a' ? <></> : setFoodList.length === 0 ? <></> : 
@@ -42,17 +75,20 @@ function FoodCaloriesPage() {
       
       <h2>Food Calories Page</h2>
       <div>
-        <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)}/>
+        Date:<DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)}/>
     </div>
       <center>
       <h3> Total Calories for Today:</h3>
 
-  {setFoodList.map((calorie) => {
-    return <p> {calorie.food_name}(Carbs:{calorie.carbs}g, 
+        {totals()}
+
+
+  {setFoodList.map((calorie) => 
+     <p> {calorie.food_name}(Carbs:{calorie.carbs}g, 
     Sugar:{calorie.sugar}g,
     Fat:{calorie.fat}g, 
     Protein:{calorie.protein}g)</p>
-  })}
+  )}
 
     {/* {setFoodList[id].carbs}
       {setFoodList[id].sugar}
@@ -61,7 +97,7 @@ function FoodCaloriesPage() {
       {/* <br/> */}
       Food: {setFoodList[id].food_name} 
       <br/>
-        <button
+        <Button
           type="submit"
           variant="contained"color="secondary"
           onClick={(handleCaloriesPage) => {
@@ -69,7 +105,7 @@ function FoodCaloriesPage() {
           }}
         >
           SELECT FOOD
-        </button>
+        </Button>
       </center>
       {/* {JSON.stringify(setFoodList)} */}
     </div>
