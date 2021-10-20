@@ -10,12 +10,12 @@ function FoodListPage() {
   const reduxStore = useSelector((store) => store);
   const { setFoodList } = reduxStore;
   const dispatch = useDispatch();
-  const [totalCalories, setTotalCalories] = useState(0)
+  //const [totalCalories, setTotalCalories] = useState(0)
 
   const history = useHistory();
 
   //state var to hold newFood details
-  const [selectFood, setSelectFood] = useState({ food_name: selectFood });
+  const [selectFood, setSelectFood] = useState({ food_name: selectFood});
 
   //function to handlePOSTFood
   const handlePostFood = (index) => (event) => {

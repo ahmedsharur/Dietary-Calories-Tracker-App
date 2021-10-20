@@ -16,12 +16,13 @@ import {Button, TextField, Paper, makeStyles} from '@material-ui/core'
 
 function FoodCaloriesPage() {
   const history = useHistory();
-  const [selectedDate, setSelectedDate] = useState(null)
+  const [selectedDate, setSelectedDate] = useState('')
   //const [calories, setCalories] = useState();
 
   const reduxStore = useSelector((store) => store);
   const { setFoodList } = reduxStore;
 
+  const dispatch = useDispatch();
 
   const {id} = useParams();
   console.log(setFoodList)
@@ -34,38 +35,43 @@ function FoodCaloriesPage() {
   });
 } 
 
+ const getDate = (event) => {
+    event.preventDefault();
+    dispatch({type: 'GET_DATE', payload: selectedDate});
+    setSelectedDate(event.target.value)
+ } 
 
-const totals = () => {
-
-let sugars = 0;
+const totalCarbs = () => {
+let carbs = 0; 
 setFoodList.map((meal) => {
-  sugars+=meal.sugar
-}
-  
-)
-return <p> {sugars}</p>
-
-
+  carbs+=meal.carbs
+})
+return <p> Carbs:{carbs}</p>
 }
 
-// const totals = () =>  setFoodList.map((meal,index) => {
-//    return meal[index].carbs, meal.sugar, meal.fat, meal.protein
-// }).reduce((acc, curr) => {
-//     console.log('This is current total', curr)
-//     return acc + curr
-//   },0)
-  
-//   totals();
+const totalSugars = () => {
+  let sugar = 0;
+  setFoodList.map((meal) => {
+    sugar+=meal.sugar
+  })
+   return <p>Sugar:{sugar} </p>
+}
 
+const totalFats = () => {
+  let fat = 0;
+  setFoodList.map((meal) => {
+    fat+=meal.fat
+  })
+  return <p>Fats:{fat}</p>
+}
 
-//  const total= ()=> setFoodList.map((acc,curr,index) =>{
-//   console.log("the totals are", acc)
-//   console.log('the values are', curr)
-//   console.log("the index is", index)
-//   return  acc + curr.carbs
-// })
-
-// total();
+const totalProteins = () => {
+  let protein = 0;
+  setFoodList.map((meal) => {
+    protein+=meal.protein
+  })
+  return <p> Proteins:{protein}</p>
+}
 
   return (
     <>
@@ -75,15 +81,25 @@ return <p> {sugars}</p>
       
       <h2>Food Calories Page</h2>
       <div>
-        Date:<DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)}/>
+       
+      {/* <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)}/> */}
+
+        <form >
+        <input required placeholder="date" value={selectedDate} type="date" 
+         onChange={getDate}/>
+        {/* <p> {console.log(selectedDate)}</p> */}
+        </form>
+        {selectedDate}
     </div>
       <center>
       <h3> Total Calories for Today:</h3>
 
-        {totals()}
+         {totalCarbs()} 
+         {totalSugars()}
+         {totalFats()}
+         {totalProteins()}
 
-
-  {setFoodList.map((calorie) => 
+  Foods:{setFoodList.map((calorie) => 
      <p> {calorie.food_name}(Carbs:{calorie.carbs}g, 
     Sugar:{calorie.sugar}g,
     Fat:{calorie.fat}g, 

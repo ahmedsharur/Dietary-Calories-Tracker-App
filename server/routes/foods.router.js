@@ -24,7 +24,7 @@ router.get('/select', (req, res) => {
   pool.query(`SELECT * FROM 
   user_food JOIN food ON 
   user_food.food_id = food.id JOIN "user" ON 
-  user_food.user_id = "user".id`)
+  user_food.user_id = "user".id WHERE date = CURRENT_TIMESTAMP`)
   .then((results) => {
   console.log('get the selected food', results.rows)
   res.send(results.rows)})
