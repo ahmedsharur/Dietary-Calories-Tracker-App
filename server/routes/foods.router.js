@@ -2,6 +2,10 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+const {
+  rejectUnauthenticated, 
+} = require('../modules/authentication-middleware');
+
 /**
  * GET route foods
  */
@@ -20,11 +24,12 @@ router.get('/', (req, res) => {
 // Create a get route for selected food
 //select from user_food join food and user
 
-router.get('/select', (req, res) => {
+router.get('/select/:date', rejectUnauthenticated, (req, res) => {
   pool.query(`SELECT * FROM 
   user_food JOIN food ON 
   user_food.food_id = food.id JOIN "user" ON 
-  user_food.user_id = "user".id WHERE date = CURRENT_TIMESTAMP`)
+  user_food.user_id = "user".id WHERE 
+  user_food.user_id = $1 AND date = $2`), [req.user.id, req.params.date]
   .then((results) => {
   console.log('get the selected food', results.rows)
   res.send(results.rows)})

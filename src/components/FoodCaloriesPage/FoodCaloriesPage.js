@@ -31,7 +31,8 @@ function FoodCaloriesPage() {
 
   const getDate = (event) => {
     event.preventDefault();
-    dispatch({ type: "GET_DATE", payload: selectedDate });
+    // Send the data to the saga and set local state
+    dispatch({ type: "GET_DATE", payload: event.target.value });
     setSelectedDate(event.target.value);
   };
 
@@ -68,12 +69,6 @@ function FoodCaloriesPage() {
   };
   return (
     <>
-      {id === "a" ? (
-        <></>
-      ) : setFoodList.length === 0 ? (
-        <></>
-      ) : (
-        <>
           <div className="container">
             <h2>Food Calories Page</h2>
             <div>
@@ -88,6 +83,8 @@ function FoodCaloriesPage() {
               </form>
               {selectedDate}
             </div>
+            {setFoodList && setFoodList.length > 0 &&
+            (
             <center>
               <h3> Total Calories for Today:</h3>
               <div className="simpleTable">
@@ -97,12 +94,11 @@ function FoodCaloriesPage() {
                 {totalProteins()}
               </div>
               <div className="simpleTable">
-                Foods:
+                <p>Foods: </p>
                 {setFoodList.map((calorie) => (
                   <p>
-                    {" "}
-                    {calorie.food_name}(Carbs:{calorie.carbs}g, Sugar:
-                    {calorie.sugar}g, Fat:{calorie.fat}g, Protein:
+                    {calorie.food_name}(Carbs:{calorie.carbs}g, 
+                    Sugar:{calorie.sugar}g, Fat:{calorie.fat}g, Protein:
                     {calorie.protein}g)
                   </p>
                 ))}
@@ -120,10 +116,9 @@ function FoodCaloriesPage() {
                 SELECT FOOD
               </Button>
             </center>
+            )}
           </div>
         </>
-      )}
-    </>
   );
 }
 

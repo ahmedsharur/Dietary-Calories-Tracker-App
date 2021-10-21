@@ -2,9 +2,10 @@ import { put, takeLatest } from 'redux-saga/effects'
 import axios from 'axios';
 
 
-function* getDate(){
+function* getDate(action){
     try{
-        yield axios.get('/api/foods/select')
+        const selectedDate = action.payload;
+        yield axios.get(`/api/foods/select/${action.payload}`)
         yield put({type: 'FETCH_FOOD'})
     }catch(error){
             console.log('Error selecting date', error )
